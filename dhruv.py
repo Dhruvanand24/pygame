@@ -13,8 +13,8 @@ pygame.display.set_caption("Memorize Made BY Dhruv Anand")
 
 tile_size = 266
 # load images
-background = pygame.image.load('E:\Purple_website.svg.webp')
-tileimg = pygame.image.load('E:\metallic-textured-background_53876-89255.webp')
+background = pygame.image.load('./Purple_website.svg.webp')
+tileimg = pygame.image.load('./metallic-textured-background_53876-89255.webp')
 tileimg = pygame.transform.scale(tileimg, (tile_size, tile_size))
 inplist = []
 finallist = []
