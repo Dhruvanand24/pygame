@@ -54,10 +54,8 @@ def draw_grid():
 
 
 def stages():
-    print('entered stages')
     r = random.randint(1, 9)
     make.append(r)
-    print(make)
     sleep(1)
     for k in make:
         screen.blit(tileimg, (dictx[k], dicty[k]))
@@ -67,7 +65,6 @@ def stages():
         draw_grid()
         pygame.display.update()
     inplist.clear()
-    print('made inplist empty')
     return
 
 
@@ -77,7 +74,6 @@ def showscore():
     textrect = text.get_rect()
     textrect.center = (screen_height // 2, screen_width // 2)
     while run:
-        print('showscore reached')
         screen.fill(white)
         screen.blit(text, textrect)
         pygame.display.update()
@@ -88,64 +84,40 @@ def showscore():
 run = True
 while run:
     if (len(make) == len(finallist)) and (make != finallist):
-        print('entered if  for  showscore')
         showscore()
         make.clear()
         finallist.clear()
         score = -1
         inplist.clear()
 
-    print('entered while')
     screen.blit(background, (0, 0))
     draw_grid()
     finallist = inplist
-    print('made final list = inplist')
-    print('final list is now: ', finallist)
     if make == finallist:
         score += 1
-        print('entered if')
         stages()
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             run = False
         if event.type == pygame.KEYDOWN:
-            print('pressed something')
             if event.key == pygame.K_KP7 or event.key == pygame.K_q:
                 inplist.append(7)
-                print('pressed 7 or q')
-                print(inplist)
             if event.key == pygame.K_KP8 or event.key == pygame.K_w:
                 inplist.append(8)
-                print('pressed 8')
-                print(inplist)
             if event.key == pygame.K_KP9 or event.key == pygame.K_e:
                 inplist.append(9)
-                print('pressed 9')
-                print(inplist)
             if event.key == pygame.K_KP4 or event.key == pygame.K_a:
                 inplist.append(4)
-                print('pressed 4')
-                print(inplist)
             if event.key == pygame.K_KP5 or event.key == pygame.K_s:
                 inplist.append(5)
-                print('pressed 5')
-                print(inplist)
             if event.key == pygame.K_KP6 or event.key == pygame.K_d:
                 inplist.append(6)
-                print('pressed 6')
-                print(inplist)
             if event.key == pygame.K_KP1 or event.key == pygame.K_z:
                 inplist.append(1)
-                print('pressed 1')
-                print(inplist)
             if event.key == pygame.K_KP2 or event.key == pygame.K_x:
                 inplist.append(2)
-                print('pressed 2')
-                print(inplist)
             if event.key == pygame.K_KP3 or event.key == pygame.K_c:
                 inplist.append(3)
-                print('pressed 3')
-                print(inplist)
 
     pygame.display.update()
 pygame.quit()
